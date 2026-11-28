@@ -1,0 +1,261 @@
+/* ------------------------------------------------------------------ */
+/* Hero (landing)                                                      */
+/* ------------------------------------------------------------------ */
+
+.hero {
+    padding: 5rem 2rem 4rem;
+    display: block;
+}
+
+.hero-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    margin-bottom: 1.75rem;
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+}
+
+.hero-title-accent {
+    color: var(--accent);
+}
+
+.hero-subtitle {
+    font-size: 1.05rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0 auto 2rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ------------------------------------------------------------------ */
+/* Dashboard preview card                                              */
+/* ------------------------------------------------------------------ */
+
+.dashboard-preview {
+    margin-top: 3rem;
+}
+
+.preview-card {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    max-width: 480px;
+    margin: 0 auto;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+    text-align: left;
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.preview-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.25rem;
+}
+
+.preview-total {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: var(--ink);
+}
+
+.preview-stats {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.preview-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.preview-stat-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.preview-stat-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.preview-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.preview-bar-row {
+    display: grid;
+    grid-template-columns: 70px 1fr 70px;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.preview-cat {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+}
+
+.preview-bar-track {
+    height: 8px;
+    background: var(--border-soft);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.preview-bar {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 999px;
+}
+
+.preview-bar-2 { background: var(--accent-2); }
+
+.preview-bar-3 { background: #5b7fa6; }
+
+.preview-amt {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+    text-align: right;
+}
+
+/* ------------------------------------------------------------------ */
+/* Responsive                                                          */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 3rem 1rem 2.5rem;
+    }
+
+    .preview-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .preview-stats {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .preview-stat {
+        align-items: flex-start;
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* Video modal                                                         */
+/* ------------------------------------------------------------------ */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-dialog {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    background: transparent;
+    transform: scale(0.95);
+    transition: transform 0.25s ease;
+}
+
+.modal-overlay.active .modal-dialog {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: -2.5rem;
+    right: 0;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.25rem;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.modal-close:hover { opacity: 1; }
+
+.modal-video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    background: #000;
+}
+
+.modal-video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
